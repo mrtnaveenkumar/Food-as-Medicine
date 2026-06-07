@@ -266,7 +266,8 @@
     }
 
     .offer-text {
-      margin: 0;
+      max-width: calc(100% - clamp(92px, 13vw, 142px));
+      margin: 0 auto 0 0;
     }
 
     .note-contact {
@@ -274,12 +275,14 @@
       margin: clamp(14px, 2.5vw, 20px) auto 0;
       display: flex;
       justify-content: center;
+      align-items: flex-start;
     }
 
     .note-card {
-      width: min(470px, 100%);
-      min-height: 132px;
-      padding: clamp(16px, 2.4vw, 22px);
+      width: fit-content;
+      max-width: 100%;
+      min-height: 0;
+      padding: clamp(10px, 1.3vw, 14px) clamp(16px, 2vw, 24px);
       border-radius: 16px;
       background: var(--card);
       border: 1px solid var(--border);
@@ -289,7 +292,7 @@
     }
 
     .note-card {
-      font-size: clamp(15px, 1.8vw, 20px);
+      font-size: clamp(11px, 1.45vw, 15px);
       line-height: 1.25;
       white-space: nowrap;
       overflow: hidden;
@@ -454,6 +457,10 @@
 
       .service-offer {
         padding: 34px 12px 14px;
+      }
+
+      .offer-text {
+        max-width: calc(100% - 76px);
       }
 
       .service-images {
