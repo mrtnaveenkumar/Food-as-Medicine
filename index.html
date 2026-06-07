@@ -205,6 +205,7 @@
     }
 
     .service-offer {
+      position: relative;
       min-width: 0;
       width: min(934px, 100%);
       margin: clamp(14px, 2.5vw, 20px) auto 0;
@@ -220,6 +221,48 @@
       line-height: 1.25;
       box-shadow: 0 16px 34px rgba(15, 81, 56, .25);
       overflow-wrap: anywhere;
+    }
+
+    .free-badge {
+      display: grid;
+      place-items: center;
+      width: clamp(58px, 8vw, 82px);
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, #ffd95a, #ff7a1a 58%, #d9272f);
+      color: #fff;
+      clip-path: polygon(
+        50% 0%,
+        61% 26%,
+        88% 12%,
+        74% 39%,
+        100% 50%,
+        74% 61%,
+        88% 88%,
+        61% 74%,
+        50% 100%,
+        39% 74%,
+        12% 88%,
+        26% 61%,
+        0% 50%,
+        26% 39%,
+        12% 12%,
+        39% 26%
+      );
+      font-family: Arial, sans-serif;
+      font-size: clamp(13px, 1.8vw, 18px);
+      font-weight: 900;
+      line-height: 1;
+      text-transform: uppercase;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, .28);
+      filter: drop-shadow(0 8px 12px rgba(0, 0, 0, .22));
+      transform: rotate(-10deg);
+    }
+
+    .service-offer > .free-badge {
+      position: absolute;
+      top: -18px;
+      right: clamp(12px, 3vw, 28px);
+      z-index: 2;
     }
 
     .offer-text {
@@ -246,8 +289,11 @@
     }
 
     .note-card {
-      font-size: clamp(21px, 2.7vw, 27px);
-      line-height: 1.28;
+      font-size: clamp(15px, 1.8vw, 20px);
+      line-height: 1.25;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: clip;
     }
 
     .note-card b {
@@ -262,6 +308,21 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: clamp(8px, 2vw, 20px);
       min-width: 0;
+    }
+
+    .service-tile {
+      position: relative;
+      min-width: 0;
+    }
+
+    .service-tile .free-badge {
+      position: absolute;
+      top: -9px;
+      right: -9px;
+      width: clamp(36px, 5.2vw, 52px);
+      font-size: clamp(8px, 1.15vw, 11px);
+      z-index: 2;
+      transform: rotate(11deg);
     }
 
     .service-images img {
@@ -392,11 +453,21 @@
       }
 
       .service-offer {
-        padding: 14px 12px;
+        padding: 34px 12px 14px;
       }
 
       .service-images {
         gap: 8px;
+      }
+
+      .service-offer > .free-badge {
+        top: -12px;
+        right: 8px;
+      }
+
+      .service-tile .free-badge {
+        top: -6px;
+        right: -5px;
       }
     }
 
@@ -428,7 +499,7 @@
       }
 
       .note-card {
-        font-size: 19px;
+        font-size: 11px;
       }
 
       .footer-contact {
@@ -471,23 +542,31 @@
       </section>
 
       <section class="service-offer">
+        <span class="free-badge">Free</span>
         <p class="offer-text">
           Foot Reflexology, Cupping Therapy, or a Sub-Health Analysis<br>
           இந்த சேவைகளில் ஏதேனும் ஒன்று ஒருமுறை இலவசம்
         </p>
 
         <div class="service-images" aria-label="இலவச சேவை படங்கள்">
-          <img src="assets/foot-reflexology.jpeg" alt="Foot Reflexology">
-          <img src="assets/cupping-therapy.png" alt="Cupping Therapy">
-          <img src="assets/sub-health-analysis.jpeg" alt="Sub-Health Analysis">
+          <div class="service-tile">
+            <span class="free-badge">Free</span>
+            <img src="assets/foot-reflexology.jpeg" alt="Foot Reflexology">
+          </div>
+          <div class="service-tile">
+            <span class="free-badge">Free</span>
+            <img src="assets/cupping-therapy.png" alt="Cupping Therapy">
+          </div>
+          <div class="service-tile">
+            <span class="free-badge">Free</span>
+            <img src="assets/sub-health-analysis.jpeg" alt="Sub-Health Analysis">
+          </div>
         </div>
       </section>
 
       <section class="note-contact">
         <div class="note-card">
-          <b>குறிப்பு:</b><br>
-          தங்கள் வருகையை<br>
-          12.6.26க்குள் தெரிவிக்கவும்.
+          <b>குறிப்பு:</b> தங்கள் வருகையை 12.6.26க்குள் தெரிவிக்கவும்.
         </div>
       </section>
 
