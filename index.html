@@ -426,6 +426,15 @@
       font-weight: 900;
     }
 
+    .posted-by-details {
+      display: none;
+      margin-top: .55em;
+    }
+
+    .posted-by-details.is-visible {
+      display: block;
+    }
+
     .footer-grid {
       width: min(934px, 100%);
       margin: clamp(14px, 2.5vw, 20px) auto 0;
@@ -651,8 +660,7 @@
 
         <section class="posted-by">
           பதிவிட்டவர்
-          <span>V. AYYAMMAL</span>
-          <span>9965665537</span>
+          <div class="posted-by-details" id="postedByDetails" aria-live="polite"></div>
         </section>
       </div>
 
@@ -661,5 +669,27 @@
       </section>
     </article>
   </main>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const postedName = (params.get("name") || "").trim();
+    const postedMobile = (params.get("mobile") || params.get("phone") || "").trim();
+    const postedByDetails = document.getElementById("postedByDetails");
+
+    if (postedByDetails && (postedName || postedMobile)) {
+      postedByDetails.classList.add("is-visible");
+
+      if (postedName) {
+        const nameLine = document.createElement("span");
+        nameLine.textContent = postedName;
+        postedByDetails.appendChild(nameLine);
+      }
+
+      if (postedMobile) {
+        const mobileLine = document.createElement("span");
+        mobileLine.textContent = postedMobile;
+        postedByDetails.appendChild(mobileLine);
+      }
+    }
+  </script>
 </body>
 </html>
