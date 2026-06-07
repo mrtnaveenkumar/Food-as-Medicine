@@ -173,12 +173,12 @@
       text-transform: uppercase;
     }
 
-    .offer {
+    .service-offer {
       position: absolute;
       left: 58px;
       top: 475px;
       width: 934px;
-      padding: 14px 26px;
+      padding: 14px 18px 18px;
       border-radius: 12px;
       background: var(--green);
       color: #fff;
@@ -188,10 +188,14 @@
       line-height: 1.25;
     }
 
+    .offer-text {
+      margin: 0;
+    }
+
     .note-contact {
       position: absolute;
       left: 58px;
-      top: 590px;
+      top: 815px;
       width: 934px;
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -232,10 +236,8 @@
     }
 
     .service-images {
-      position: absolute;
-      left: 160px;
-      top: 780px;
       width: 730px;
+      margin: 14px auto 0;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
@@ -343,9 +345,17 @@
 
       </section>
 
-      <section class="offer">
-        Foot Reflexology, Cupping Therapy, or a Sub-Health Analysis<br>
-        இந்த சேவைகளில் ஏதேனும் ஒன்று ஒருமுறை இலவசம்
+      <section class="service-offer">
+        <p class="offer-text">
+          Foot Reflexology, Cupping Therapy, or a Sub-Health Analysis<br>
+          இந்த சேவைகளில் ஏதேனும் ஒன்று ஒருமுறை இலவசம்
+        </p>
+
+        <div class="service-images" aria-label="இலவச சேவை படங்கள்">
+          <img src="assets/foot-reflexology.jpeg" alt="Foot Reflexology">
+          <img src="assets/cupping-therapy.png" alt="Cupping Therapy">
+          <img src="assets/sub-health-analysis.jpeg" alt="Sub-Health Analysis">
+        </div>
       </section>
 
       <section class="note-contact">
@@ -360,12 +370,6 @@
           <span class="name">V. AYYAMMAL: 9965665537</span>
           <span class="name">V. LASUMANAN: 9894715787</span>
         </div>
-      </section>
-
-      <section class="service-images" aria-label="இலவச சேவை படங்கள்">
-        <img src="assets/foot-reflexology.jpeg" alt="Foot Reflexology">
-        <img src="assets/cupping-therapy.png" alt="Cupping Therapy">
-        <img src="assets/sub-health-analysis.jpeg" alt="Sub-Health Analysis">
       </section>
 
       <section class="address">
