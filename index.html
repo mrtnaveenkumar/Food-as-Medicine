@@ -347,21 +347,43 @@
       border-radius: 16px;
       background: var(--card);
       border: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: clamp(12px, 2vw, 18px);
+      align-items: center;
       font-family: Arial, sans-serif;
       font-size: clamp(16px, 2vw, 21px);
       line-height: 1.25;
       font-weight: 800;
-      text-align: center;
+      text-align: left;
       box-shadow: var(--shadow);
       overflow-wrap: anywhere;
     }
 
+    .address-text {
+      min-width: 0;
+      text-align: center;
+    }
+
     .map-link {
-      display: block;
-      margin-top: 6px;
+      display: grid;
+      place-items: center;
+      width: fit-content;
+      margin: 0;
+      padding: 6px;
+      border-radius: 10px;
+      background: #fff;
+      border: 1px solid var(--border);
       color: var(--red);
       font-size: clamp(13px, 1.6vw, 17px);
       overflow-wrap: anywhere;
+      box-shadow: 0 6px 14px rgba(31, 63, 43, .1);
+    }
+
+    .map-link img {
+      width: clamp(76px, 8vw, 92px);
+      aspect-ratio: 1;
+      display: block;
     }
 
     .posted-by {
@@ -453,6 +475,15 @@
       .address,
       .posted-by {
         min-height: auto;
+      }
+
+      .address {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .map-link {
+        margin: 8px auto 0;
       }
 
       .service-offer {
@@ -579,10 +610,14 @@
 
       <div class="footer-grid">
         <section class="address">
-          SRI HARI ACUPUNCTURE CENTRE<br>
-          788/1, PASUMAI NAGAR, BAGALUR ROAD, HOSUR<br>
-          KRISNAGIRI DT - 635109
-          <a class="map-link" href="https://maps.app.goo.gl/ptSxbNB2XYCHXv8N7">https://maps.app.goo.gl/ptSxbNB2XYCHXv8N7</a>
+          <div class="address-text">
+            SRI HARI ACUPUNCTURE CENTRE<br>
+            788/1, PASUMAI NAGAR, BAGALUR ROAD, HOSUR<br>
+            KRISNAGIRI DT - 635109
+          </div>
+          <a class="map-link" href="https://maps.app.goo.gl/ptSxbNB2XYCHXv8N7" aria-label="Open Google Maps">
+            <img src="assets/google-map-qr.png" alt="Google Maps QR code">
+          </a>
         </section>
 
         <section class="posted-by">
