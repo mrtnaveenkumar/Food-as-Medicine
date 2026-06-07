@@ -74,41 +74,29 @@
       box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .55);
     }
 
-    .crop {
-      position: absolute;
-      background-image: url("assets/source-poster.jpeg");
-      background-repeat: no-repeat;
-      background-size: 1050px 1600px;
+    .header-row {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: clamp(78px, 12vw, 128px) minmax(0, 1fr) clamp(78px, 12vw, 128px);
+      gap: clamp(14px, 3vw, 28px);
+      align-items: center;
     }
 
-    .sage-left {
-      left: clamp(18px, 5vw, 55px);
-      top: clamp(18px, 5vw, 54px);
-      width: clamp(70px, 11vw, 116px);
-      height: clamp(90px, 14vw, 148px);
-      border-radius: 10px;
-      background-position: -55px -54px;
-      background-size: 1050px 1600px;
-      box-shadow: 0 10px 22px rgba(20, 45, 30, .22);
-    }
-
-    .sage-right {
-      right: clamp(18px, 5vw, 54px);
-      top: clamp(18px, 5vw, 54px);
-      width: clamp(70px, 11vw, 116px);
-      height: clamp(90px, 14vw, 149px);
-      border-radius: 10px;
-      background-position: -879px -54px;
-      background-size: 1050px 1600px;
-      box-shadow: 0 10px 22px rgba(20, 45, 30, .22);
+    .header-image {
+      width: 100%;
+      aspect-ratio: 1;
+      display: block;
+      object-fit: cover;
+      border-radius: 16px;
+      border: 3px solid rgba(255, 255, 255, .85);
+      box-shadow: 0 12px 24px rgba(20, 45, 30, .22);
+      background: #fff;
     }
 
     .brand {
       position: relative;
       z-index: 1;
-      width: min(680px, calc(100% - 190px));
-      min-height: 118px;
-      margin: 0 auto;
       display: grid;
       align-content: center;
       text-align: center;
@@ -362,20 +350,7 @@
       min-width: 0;
     }
 
-    .phone-icon {
-      left: 43px;
-      top: 52px;
-      width: 88px;
-      height: 92px;
-      background-position: -535px -1448px;
-      background-size: 1050px 1600px;
-    }
     @media (max-width: 1080px) {
-      .sage-left,
-      .sage-right {
-        display: none;
-      }
-
       .brand {
         width: 100%;
         min-height: auto;
@@ -428,12 +403,18 @@
     }
 
     @media (max-width: 420px) {
-      .brand {
-        width: 100%;
-      }
-
       .brand h1 {
         font-size: 17px;
+      }
+
+      .header-row {
+        grid-template-columns: 58px minmax(0, 1fr) 58px;
+        gap: 8px;
+      }
+
+      .header-image {
+        border-radius: 12px;
+        border-width: 2px;
       }
 
       .course-title {
@@ -457,12 +438,13 @@
 <body>
   <main class="scale-shell" aria-label="அடிப்படை பயிற்சி அறிவிப்பு">
     <article class="poster">
-      <div class="crop sage-left" aria-hidden="true"></div>
-      <div class="crop sage-right" aria-hidden="true"></div>
-
-      <header class="brand">
-        <h1>SRI HARI ACUPUNCTURE CENTRE</h1>
-        <div class="sub">நடத்தும்</div>
+      <header class="header-row">
+        <img class="header-image" src="assets/bhogar.jpeg" alt="Bhogar">
+        <div class="brand">
+          <h1>SRI HARI ACUPUNCTURE CENTRE</h1>
+          <div class="sub">நடத்தும்</div>
+        </div>
+        <img class="header-image" src="assets/header-saint.png" alt="Saint">
       </header>
 
       <div class="course-title">உணவு மருத்துவம் மற்றும் அக்குபங்சர் அடிப்படைப் பயிற்சி வகுப்பு</div>
