@@ -547,6 +547,43 @@
       }
     }
 
+    #dlBtn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 11px 20px;
+      background: var(--green);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .3px;
+      cursor: pointer;
+      box-shadow: 0 6px 22px rgba(15, 81, 56, .38);
+      transition: background .2s, transform .15s, box-shadow .2s;
+      user-select: none;
+    }
+
+    #dlBtn:hover {
+      background: var(--green-2);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(15, 81, 56, .45);
+    }
+
+    #dlBtn:active {
+      transform: translateY(0);
+    }
+
+    #dlBtn svg {
+      flex-shrink: 0;
+    }
+
     @media (max-width: 420px) {
       .brand h1 {
         font-size: 14px;
@@ -669,6 +706,46 @@
       </section>
     </article>
   </main>
+  <button id="dlBtn" aria-label="Download page as image">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <path d="M8 1v9m0 0L5 7m3 3 3-3M2 12v1.5A1.5 1.5 0 0 0 3.5 15h9A1.5 1.5 0 0 0 14 13.5V12" stroke="#fff" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    Download
+  </button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    document.getElementById("dlBtn").addEventListener("click", async function () {
+      const btn = this;
+      btn.disabled = true;
+      btn.style.opacity = "0";
+      btn.style.pointerEvents = "none";
+
+      try {
+        const canvas = await html2canvas(document.body, {
+          useCORS: true,
+          allowTaint: true,
+          scale: 2,
+          scrollX: 0,
+          scrollY: 0,
+          width: document.documentElement.scrollWidth,
+          height: document.documentElement.scrollHeight,
+          windowWidth: document.documentElement.scrollWidth,
+          windowHeight: document.documentElement.scrollHeight
+        });
+
+        const link = document.createElement("a");
+        link.download = "food-as-medicine-poster.jpg";
+        link.href = canvas.toDataURL("image/jpeg", 0.92);
+        link.click();
+      } finally {
+        btn.disabled = false;
+        btn.style.opacity = "";
+        btn.style.pointerEvents = "";
+      }
+    });
+  </script>
+
   <script>
     const params = new URLSearchParams(window.location.search);
     const postedName = (params.get("name") || "").trim();
