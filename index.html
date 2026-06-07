@@ -6,45 +6,55 @@
   <title>உணவு மருத்துவம் மற்றும் அக்குபங்சர் அடிப்படைப் பயிற்சி வகுப்பு</title>
   <style>
     :root {
-      --poster-w: 1050px;
-      --poster-h: 1600px;
-      --leaf: #ddecaa;
+      --leaf: #e6f1b8;
+      --leaf-deep: #d6eaa2;
       --green: #126044;
-      --red: #f00816;
-      --ink: #070707;
-      --line: #d8d8d8;
+      --green-soft: #eaf4df;
+      --red: #d81922;
+      --ink: #111412;
+      --muted: #556057;
+      --card: #ffffff;
+      --border: rgba(18, 96, 68, .16);
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html,
+    body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
-      display: grid;
-      place-items: start center;
-      padding: 20px;
-      background: #e9efd0;
+      padding: clamp(12px, 3vw, 28px);
+      background: #f3f7e4;
       color: var(--ink);
       font-family: "Noto Sans Tamil", "Latha", "Nirmala UI", "Arial Unicode MS", sans-serif;
     }
 
     .scale-shell {
-      --scale: 1;
-      width: calc(var(--poster-w) * var(--scale));
-      height: calc(var(--poster-h) * var(--scale));
+      width: min(100%, 1050px);
+      max-width: 100%;
+      margin: 0 auto;
+      min-width: 0;
     }
 
     .poster {
       position: relative;
-      width: var(--poster-w);
-      min-height: var(--poster-h);
       overflow: hidden;
-      transform: scale(var(--scale));
-      transform-origin: top left;
-      background: var(--leaf);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, .18);
+      width: 100%;
+      min-width: 0;
+      padding: clamp(22px, 5vw, 54px);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, .28), rgba(255, 255, 255, 0) 36%),
+        var(--leaf);
+      border: 1px solid rgba(18, 96, 68, .1);
+      border-radius: 18px;
+      box-shadow: 0 20px 55px rgba(18, 63, 42, .16);
       letter-spacing: 0;
     }
 
@@ -56,82 +66,82 @@
     }
 
     .sage-left {
-      left: 55px;
-      top: 54px;
-      width: 116px;
-      height: 148px;
+      left: clamp(18px, 5vw, 55px);
+      top: clamp(18px, 5vw, 54px);
+      width: clamp(70px, 11vw, 116px);
+      height: clamp(90px, 14vw, 148px);
       border-radius: 10px;
       background-position: -55px -54px;
+      background-size: 1050px 1600px;
       box-shadow: 0 0 0 1px rgba(0, 0, 0, .4);
     }
 
     .sage-right {
-      right: 54px;
-      top: 54px;
-      width: 116px;
-      height: 149px;
+      right: clamp(18px, 5vw, 54px);
+      top: clamp(18px, 5vw, 54px);
+      width: clamp(70px, 11vw, 116px);
+      height: clamp(90px, 14vw, 149px);
       border-radius: 10px;
       background-position: -879px -54px;
+      background-size: 1050px 1600px;
       box-shadow: 0 0 0 1px rgba(0, 0, 0, .4);
     }
 
     .brand {
-      position: absolute;
-      left: 190px;
-      top: 66px;
-      width: 680px;
+      position: relative;
+      z-index: 1;
+      width: min(680px, calc(100% - 190px));
+      min-height: 118px;
+      margin: 0 auto;
+      display: grid;
+      align-content: center;
       text-align: center;
     }
 
     .brand h1 {
       margin: 0;
-      font-size: 40px;
+      font-size: clamp(24px, 4vw, 40px);
       line-height: 1.08;
       font-weight: 900;
+      font-family: Arial, sans-serif;
+      overflow-wrap: anywhere;
     }
 
     .brand .sub {
       margin-top: 5px;
-      font-size: 30px;
+      font-size: clamp(20px, 3vw, 30px);
       line-height: 1.1;
       font-weight: 500;
     }
 
     .course-title {
-      position: absolute;
-      left: 75px;
-      top: 214px;
-      width: 900px;
+      width: min(900px, 100%);
+      margin: 22px auto 0;
       text-align: center;
       color: var(--red);
-      font-size: 39px;
+      font-size: clamp(25px, 4.1vw, 42px);
       line-height: 1.18;
       font-weight: 900;
-      text-shadow:
-        2px 2px 0 #fff,
-        -2px 2px 0 #fff,
-        2px -2px 0 #fff,
-        -2px -2px 0 #fff;
+      text-shadow: 0 2px 0 rgba(255, 255, 255, .85);
     }
 
     .details {
-      position: absolute;
-      left: 58px;
-      top: 320px;
-      width: 934px;
+      width: min(934px, 100%);
+      margin: clamp(22px, 4vw, 34px) auto 0;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: clamp(12px, 2vw, 18px);
       align-items: stretch;
     }
 
     .info-card {
-      min-height: 118px;
-      padding: 15px 18px 13px;
-      border-radius: 12px;
-      background: #fff;
-      border: 2px solid rgba(18, 96, 68, .16);
-      box-shadow: 0 2px 0 rgba(18, 96, 68, .08);
+      min-width: 0;
+      min-height: 116px;
+      padding: clamp(16px, 2.4vw, 22px);
+      border-radius: 14px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 24px rgba(18, 96, 68, .09);
     }
 
     .info-card.wide {
@@ -147,45 +157,47 @@
     }
 
     .info-body {
-      font-size: 27px;
+      font-size: clamp(22px, 3vw, 30px);
       line-height: 1.23;
       font-weight: 700;
     }
 
     .info-body .muted {
       display: block;
-      margin-top: 2px;
-      font-size: 22px;
-      font-weight: 500;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: clamp(18px, 2.3vw, 23px);
+      font-weight: 600;
     }
 
     .fee-highlight {
       color: var(--red);
-      font-size: 42px;
+      font-size: clamp(34px, 4.5vw, 48px);
       line-height: 1;
       font-weight: 900;
     }
 
     .fee-highlight small {
       color: var(--ink);
-      font-size: 20px;
+      font-size: clamp(15px, 1.9vw, 20px);
       font-weight: 900;
       text-transform: uppercase;
     }
 
     .service-offer {
-      position: absolute;
-      left: 58px;
-      top: 475px;
-      width: 934px;
-      padding: 14px 18px 18px;
-      border-radius: 12px;
+      min-width: 0;
+      width: min(934px, 100%);
+      margin: clamp(14px, 2.5vw, 20px) auto 0;
+      padding: clamp(16px, 2.5vw, 24px);
+      border-radius: 16px;
       background: var(--green);
       color: #fff;
       text-align: center;
       font-weight: 900;
-      font-size: 25px;
+      font-size: clamp(19px, 2.6vw, 26px);
       line-height: 1.25;
+      box-shadow: 0 14px 30px rgba(18, 96, 68, .22);
+      overflow-wrap: anywhere;
     }
 
     .offer-text {
@@ -193,27 +205,27 @@
     }
 
     .note-contact {
-      position: absolute;
-      left: 58px;
-      top: 815px;
-      width: 934px;
+      width: min(934px, 100%);
+      margin: clamp(14px, 2.5vw, 20px) auto 0;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: clamp(12px, 2vw, 18px);
     }
 
     .note-card,
     .contact-card {
-      min-height: 144px;
-      padding: 16px 20px;
-      border-radius: 12px;
-      background: #fff;
-      border: 2px solid rgba(18, 96, 68, .16);
+      min-height: 132px;
+      padding: clamp(16px, 2.4vw, 22px);
+      border-radius: 14px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 24px rgba(18, 96, 68, .08);
       text-align: center;
+      min-width: 0;
     }
 
     .note-card {
-      font-size: 25px;
+      font-size: clamp(21px, 2.7vw, 27px);
       line-height: 1.28;
     }
 
@@ -229,82 +241,92 @@
     }
 
     .contact-card {
-      font-size: 18px;
+      color: #404840;
+      font-size: clamp(15px, 1.9vw, 18px);
       line-height: 1.3;
     }
 
     .contact-card .name {
       display: block;
       font-family: Arial, sans-serif;
-      font-size: 18px;
+      font-size: clamp(15px, 1.9vw, 18px);
       font-weight: 600;
     }
 
     .service-images {
-      width: 730px;
-      margin: 14px auto 0;
+      width: min(730px, 100%);
+      margin: clamp(12px, 2vw, 18px) auto 0;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: clamp(8px, 2vw, 20px);
+      min-width: 0;
     }
 
     .service-images img {
+      min-width: 0;
       width: 100%;
       aspect-ratio: 1;
       display: block;
       object-fit: cover;
-      border-radius: 12px;
-      border: 5px solid #fff;
+      border-radius: 13px;
+      border: clamp(3px, .7vw, 5px) solid #fff;
       box-shadow: 0 4px 12px rgba(0, 0, 0, .18);
       background: #fff;
     }
 
     .address {
-      position: absolute;
-      left: 58px;
-      bottom: 22px;
-      width: 610px;
+      width: 100%;
       min-height: 82px;
-      padding: 12px 18px;
-      border-radius: 12px;
-      background: #fff;
-      border: 2px solid rgba(18, 96, 68, .16);
+      padding: clamp(14px, 2vw, 18px);
+      border-radius: 14px;
+      background: var(--card);
+      border: 1px solid var(--border);
       font-family: Arial, sans-serif;
-      font-size: 20px;
+      font-size: clamp(16px, 2vw, 21px);
       line-height: 1.25;
       font-weight: 800;
       text-align: center;
+      box-shadow: 0 10px 24px rgba(18, 96, 68, .08);
+      overflow-wrap: anywhere;
     }
 
     .map-link {
       display: block;
-      margin-top: 4px;
+      margin-top: 6px;
       color: var(--red);
-      font-size: 17px;
+      font-size: clamp(13px, 1.6vw, 17px);
       overflow-wrap: anywhere;
     }
 
     .posted-by {
-      position: absolute;
-      right: 58px;
-      bottom: 22px;
-      width: 302px;
+      width: 100%;
       min-height: 82px;
-      padding: 12px 16px;
-      border-radius: 12px;
-      background: #fff;
-      border: 2px solid rgba(18, 96, 68, .16);
+      padding: clamp(14px, 2vw, 18px);
+      border-radius: 14px;
+      background: var(--card);
+      border: 1px solid var(--border);
       text-align: center;
-      font-size: 22px;
+      font-size: clamp(17px, 2vw, 22px);
       line-height: 1.2;
       font-weight: 800;
+      box-shadow: 0 10px 24px rgba(18, 96, 68, .08);
     }
 
     .posted-by span {
       display: block;
       font-family: Arial, sans-serif;
-      font-size: 22px;
+      font-size: clamp(17px, 2vw, 22px);
       font-weight: 900;
+    }
+
+    .footer-grid {
+      width: min(934px, 100%);
+      margin: clamp(14px, 2.5vw, 20px) auto 0;
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(220px, .9fr);
+      gap: clamp(12px, 2vw, 18px);
+      align-items: stretch;
+      min-width: 0;
     }
 
     .phone-icon {
@@ -314,6 +336,88 @@
       height: 92px;
       background-position: -535px -1448px;
       background-size: 1050px 1600px;
+    }
+    @media (max-width: 1080px) {
+      .sage-left,
+      .sage-right {
+        display: none;
+      }
+
+      .brand {
+        width: 100%;
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 720px) {
+      body {
+        padding: 10px;
+      }
+
+      .poster {
+        padding: 16px;
+        border-radius: 12px;
+      }
+
+      .brand h1 {
+        font-size: clamp(18px, 4.3vw, 22px);
+      }
+
+      .brand .sub {
+        font-size: 17px;
+      }
+
+      .course-title {
+        margin-top: 16px;
+      }
+
+      .details,
+      .note-contact,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .info-card,
+      .note-card,
+      .contact-card,
+      .address,
+      .posted-by {
+        min-height: auto;
+      }
+
+      .service-offer {
+        padding: 14px 12px;
+      }
+
+      .service-images {
+        gap: 8px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .brand {
+        width: 100%;
+      }
+
+      .brand h1 {
+        font-size: 17px;
+      }
+
+      .course-title {
+        font-size: 23px;
+      }
+
+      .info-body {
+        font-size: 20px;
+      }
+
+      .service-offer {
+        font-size: 17px;
+      }
+
+      .note-card {
+        font-size: 19px;
+      }
     }
   </style>
 </head>
@@ -375,29 +479,21 @@
         </div>
       </section>
 
-      <section class="address">
-        SRI HARI ACUPUNCTURE CENTRE<br>
-        788/1, PASUMAI NAGAR, BAGALUR ROAD, HOSUR<br>
-        KRISNAGIRI DT - 635109
-        <a class="map-link" href="https://maps.app.goo.gl/ptSxbNB2XYCHXv8N7">https://maps.app.goo.gl/ptSxbNB2XYCHXv8N7</a>
-      </section>
+      <div class="footer-grid">
+        <section class="address">
+          SRI HARI ACUPUNCTURE CENTRE<br>
+          788/1, PASUMAI NAGAR, BAGALUR ROAD, HOSUR<br>
+          KRISNAGIRI DT - 635109
+          <a class="map-link" href="https://maps.app.goo.gl/ptSxbNB2XYCHXv8N7">https://maps.app.goo.gl/ptSxbNB2XYCHXv8N7</a>
+        </section>
 
-      <section class="posted-by">
-        பதிவிட்டவர்
-        <span>V. AYYAMMAL</span>
-        <span>9965665537</span>
-      </section>
+        <section class="posted-by">
+          பதிவிட்டவர்
+          <span>V. AYYAMMAL</span>
+          <span>9965665537</span>
+        </section>
+      </div>
     </article>
   </main>
-  <script>
-    const shell = document.querySelector(".scale-shell");
-    const fitPoster = () => {
-      const scale = Math.min((window.innerWidth - 40) / 1050, 1);
-      shell.style.setProperty("--scale", String(Math.max(scale, .28)));
-    };
-
-    fitPoster();
-    window.addEventListener("resize", fitPoster);
-  </script>
 </body>
 </html>
