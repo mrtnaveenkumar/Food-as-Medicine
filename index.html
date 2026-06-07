@@ -725,6 +725,27 @@
       ".note-card{font-size:11px!important;white-space:normal!important;}"
     ].join("");
 
+    function withOklchFix(fn) {
+      var orig = window.getComputedStyle;
+      var fix = function(v) {
+        return typeof v === "string" && v.indexOf("oklch") !== -1
+          ? v.replace(/oklch\([^)]*\)/gi, "transparent") : v;
+      };
+      window.getComputedStyle = function(el, pseudo) {
+        var cs = orig.call(this, el, pseudo);
+        return new Proxy(cs, {
+          get: function(t, p) {
+            if (p === "getPropertyValue") {
+              return function(name) { return fix(t.getPropertyValue(name)); };
+            }
+            var v = t[p];
+            return typeof v === "function" ? v.bind(t) : fix(v);
+          }
+        });
+      };
+      return fn().finally(function() { window.getComputedStyle = orig; });
+    }
+
     async function downloadView(isMobile) {
       var grp = document.getElementById("dlGroup");
       grp.style.opacity = "0";
@@ -741,7 +762,7 @@
       try {
         var w = isMobile ? document.body.scrollWidth  : document.documentElement.scrollWidth;
         var h = isMobile ? document.body.scrollHeight : document.documentElement.scrollHeight;
-        var canvas = await html2canvas(document.body, {
+        var canvas = await withOklchFix(function() { return html2canvas(document.body, {
           useCORS: true,
           scale: 2,
           scrollX: 0,
@@ -750,7 +771,7 @@
           height: h,
           windowWidth: isMobile ? 390 : w,
           windowHeight: h
-        });
+        }); });
         var link = document.createElement("a");
         link.download = "food-as-medicine-" + (isMobile ? "mobile" : "desktop") + ".jpg";
         link.href = canvas.toDataURL("image/jpeg", 0.92);
