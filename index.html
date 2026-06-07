@@ -6,15 +6,19 @@
   <title>உணவு மருத்துவம் மற்றும் அக்குபங்சர் அடிப்படைப் பயிற்சி வகுப்பு</title>
   <style>
     :root {
-      --leaf: #e6f1b8;
-      --leaf-deep: #d6eaa2;
-      --green: #126044;
-      --green-soft: #eaf4df;
-      --red: #d81922;
-      --ink: #111412;
-      --muted: #556057;
-      --card: #ffffff;
-      --border: rgba(18, 96, 68, .16);
+      --page: #f6f2e8;
+      --poster-top: #f1f8d8;
+      --poster-bottom: #dbeeb1;
+      --green: #0f5138;
+      --green-2: #0b6b4f;
+      --green-soft: #edf7df;
+      --gold: #d9a441;
+      --red: #c9272f;
+      --ink: #17211b;
+      --muted: #5f6d63;
+      --card: rgba(255, 255, 255, .94);
+      --border: rgba(15, 81, 56, .16);
+      --shadow: 0 14px 30px rgba(31, 63, 43, .1);
     }
 
     * {
@@ -31,9 +35,12 @@
       margin: 0;
       min-height: 100vh;
       padding: clamp(12px, 3vw, 28px);
-      background: #f3f7e4;
+      background:
+        radial-gradient(circle at top left, rgba(217, 164, 65, .18), transparent 32rem),
+        linear-gradient(135deg, #fbf8ef 0%, var(--page) 45%, #e8efd7 100%);
       color: var(--ink);
-      font-family: "Noto Sans Tamil", "Latha", "Nirmala UI", "Arial Unicode MS", sans-serif;
+      font-family: "Noto Sans Tamil", "Nirmala UI", "Latha", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      text-rendering: optimizeLegibility;
     }
 
     .scale-shell {
@@ -50,12 +57,21 @@
       min-width: 0;
       padding: clamp(22px, 5vw, 54px);
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, .28), rgba(255, 255, 255, 0) 36%),
-        var(--leaf);
-      border: 1px solid rgba(18, 96, 68, .1);
-      border-radius: 18px;
-      box-shadow: 0 20px 55px rgba(18, 63, 42, .16);
+        linear-gradient(180deg, rgba(255, 255, 255, .74), rgba(255, 255, 255, .05) 38%),
+        linear-gradient(160deg, var(--poster-top) 0%, var(--poster-bottom) 100%);
+      border: 1px solid rgba(15, 81, 56, .14);
+      border-radius: 22px;
+      box-shadow: 0 26px 70px rgba(32, 61, 42, .2);
       letter-spacing: 0;
+    }
+
+    .poster::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      border-radius: inherit;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .55);
     }
 
     .crop {
@@ -73,7 +89,7 @@
       border-radius: 10px;
       background-position: -55px -54px;
       background-size: 1050px 1600px;
-      box-shadow: 0 0 0 1px rgba(0, 0, 0, .4);
+      box-shadow: 0 10px 22px rgba(20, 45, 30, .22);
     }
 
     .sage-right {
@@ -84,7 +100,7 @@
       border-radius: 10px;
       background-position: -879px -54px;
       background-size: 1050px 1600px;
-      box-shadow: 0 0 0 1px rgba(0, 0, 0, .4);
+      box-shadow: 0 10px 22px rgba(20, 45, 30, .22);
     }
 
     .brand {
@@ -105,13 +121,15 @@
       font-weight: 900;
       font-family: Arial, sans-serif;
       overflow-wrap: anywhere;
+      color: var(--ink);
     }
 
     .brand .sub {
       margin-top: 5px;
       font-size: clamp(20px, 3vw, 30px);
       line-height: 1.1;
-      font-weight: 500;
+      font-weight: 700;
+      color: var(--green);
     }
 
     .course-title {
@@ -138,10 +156,22 @@
       min-width: 0;
       min-height: 116px;
       padding: clamp(16px, 2.4vw, 22px);
-      border-radius: 14px;
+      border-radius: 16px;
       background: var(--card);
       border: 1px solid var(--border);
-      box-shadow: 0 10px 24px rgba(18, 96, 68, .09);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .info-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 7px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--green-2), var(--gold));
     }
 
     .info-card.wide {
@@ -160,6 +190,7 @@
       font-size: clamp(22px, 3vw, 30px);
       line-height: 1.23;
       font-weight: 700;
+      position: relative;
     }
 
     .info-body .muted {
@@ -189,14 +220,16 @@
       width: min(934px, 100%);
       margin: clamp(14px, 2.5vw, 20px) auto 0;
       padding: clamp(16px, 2.5vw, 24px);
-      border-radius: 16px;
-      background: var(--green);
+      border-radius: 18px;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, .08), rgba(255, 255, 255, 0) 42%),
+        linear-gradient(135deg, var(--green-2), var(--green));
       color: #fff;
       text-align: center;
       font-weight: 900;
       font-size: clamp(19px, 2.6vw, 26px);
       line-height: 1.25;
-      box-shadow: 0 14px 30px rgba(18, 96, 68, .22);
+      box-shadow: 0 16px 34px rgba(15, 81, 56, .25);
       overflow-wrap: anywhere;
     }
 
@@ -216,10 +249,10 @@
     .contact-card {
       min-height: 132px;
       padding: clamp(16px, 2.4vw, 22px);
-      border-radius: 14px;
+      border-radius: 16px;
       background: var(--card);
       border: 1px solid var(--border);
-      box-shadow: 0 10px 24px rgba(18, 96, 68, .08);
+      box-shadow: var(--shadow);
       text-align: center;
       min-width: 0;
     }
@@ -236,12 +269,12 @@
     }
 
     .contact-card b {
-      color: #555;
+      color: var(--muted);
       font-weight: 600;
     }
 
     .contact-card {
-      color: #404840;
+      color: var(--muted);
       font-size: clamp(15px, 1.9vw, 18px);
       line-height: 1.3;
     }
@@ -270,7 +303,7 @@
       object-fit: cover;
       border-radius: 13px;
       border: clamp(3px, .7vw, 5px) solid #fff;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, .18);
+      box-shadow: 0 8px 18px rgba(7, 40, 28, .22);
       background: #fff;
     }
 
@@ -278,7 +311,7 @@
       width: 100%;
       min-height: 82px;
       padding: clamp(14px, 2vw, 18px);
-      border-radius: 14px;
+      border-radius: 16px;
       background: var(--card);
       border: 1px solid var(--border);
       font-family: Arial, sans-serif;
@@ -286,7 +319,7 @@
       line-height: 1.25;
       font-weight: 800;
       text-align: center;
-      box-shadow: 0 10px 24px rgba(18, 96, 68, .08);
+      box-shadow: var(--shadow);
       overflow-wrap: anywhere;
     }
 
@@ -302,14 +335,14 @@
       width: 100%;
       min-height: 82px;
       padding: clamp(14px, 2vw, 18px);
-      border-radius: 14px;
+      border-radius: 16px;
       background: var(--card);
       border: 1px solid var(--border);
       text-align: center;
       font-size: clamp(17px, 2vw, 22px);
       line-height: 1.2;
       font-weight: 800;
-      box-shadow: 0 10px 24px rgba(18, 96, 68, .08);
+      box-shadow: var(--shadow);
     }
 
     .posted-by span {
@@ -445,7 +478,7 @@
         <div class="info-card">
           <div class="info-body">
             1 நபருக்கு
-            <span class="fee-highlight">ரூ.500 <small>only</small></span>
+            <span class="fee-highlight">ரூ.500</span>
             <span class="muted">(மதிய உணவு உட்பட)</span>
           </div>
         </div>
