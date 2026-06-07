@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>அடிப்படை பயிற்சி - போகர் அக்குபங்சர் நிறுவனம்</title>
+  <title>உணவு மருத்துவம் மற்றும் அக்குபங்சர் அடிப்படைப் பயிற்சி வகுப்பு</title>
   <style>
     :root {
       --poster-w: 1050px;
@@ -78,33 +78,33 @@
     .brand {
       position: absolute;
       left: 190px;
-      top: 72px;
+      top: 66px;
       width: 680px;
       text-align: center;
     }
 
     .brand h1 {
       margin: 0;
-      font-size: 48px;
-      line-height: 1.12;
+      font-size: 40px;
+      line-height: 1.08;
       font-weight: 900;
     }
 
     .brand .sub {
-      margin-top: 6px;
-      font-size: 34px;
+      margin-top: 5px;
+      font-size: 30px;
       line-height: 1.1;
       font-weight: 500;
     }
 
     .course-title {
       position: absolute;
-      left: 100px;
-      top: 198px;
-      width: 850px;
+      left: 75px;
+      top: 214px;
+      width: 900px;
       text-align: center;
       color: var(--red);
-      font-size: 43px;
+      font-size: 39px;
       line-height: 1.18;
       font-weight: 900;
       text-shadow:
@@ -114,251 +114,190 @@
         -2px -2px 0 #fff;
     }
 
-    .invite {
+    .details {
       position: absolute;
-      left: 45px;
-      top: 304px;
-      font-size: 36px;
-      line-height: 1.1;
-      font-weight: 400;
+      left: 58px;
+      top: 320px;
+      width: 934px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      align-items: stretch;
     }
 
-    .syllabus {
-      position: absolute;
-      left: 78px;
-      top: 370px;
-      width: 892px;
-      height: 584px;
+    .info-card {
+      min-height: 118px;
+      padding: 15px 18px 13px;
+      border-radius: 12px;
       background: #fff;
-      border: 1px solid #e7e7e7;
-      overflow: hidden;
+      border: 2px solid rgba(18, 96, 68, .16);
+      box-shadow: 0 2px 0 rgba(18, 96, 68, .08);
     }
 
-    .leaf-corner {
-      width: 155px;
-      height: 178px;
-      opacity: .92;
+    .info-card.wide {
+      grid-column: 1 / -1;
     }
 
-    .leaf-left-top {
-      left: 0;
-      top: 8px;
-      background-position: -76px -392px;
-    }
-
-    .leaf-left-mid {
-      display: none;
-    }
-
-    .leaf-right-top {
-      right: 0;
-      top: 8px;
-      background-position: -840px -390px;
-    }
-
-    .leaf-right-mid {
-      display: none;
-    }
-
-    .topic-list {
-      position: relative;
-      z-index: 2;
-      padding: 17px 178px 0;
-      text-align: center;
-    }
-
-    .topic {
-      margin: 0 0 10px;
-    }
-
-    .topic strong {
-      display: block;
+    .info-title {
       color: var(--green);
-      font-size: 43px;
+      font-size: 26px;
       line-height: 1.05;
       font-weight: 900;
+      margin-bottom: 6px;
     }
 
-    .topic span {
+    .info-body {
+      font-size: 27px;
+      line-height: 1.23;
+      font-weight: 700;
+    }
+
+    .info-body .muted {
       display: block;
-      margin-top: 4px;
-      font-size: 31px;
-      line-height: 1.2;
-      font-weight: 400;
+      margin-top: 2px;
+      font-size: 22px;
+      font-weight: 500;
     }
 
-    .needle-left {
-      left: 103px;
-      top: 296px;
-      width: 135px;
-      height: 89px;
-      background-position: -104px -667px;
-    }
-
-    .needle-right {
-      right: 59px;
-      top: 290px;
-      width: 145px;
-      height: 100px;
-      background-position: -812px -660px;
-    }
-
-    .veg-left {
-      left: 77px;
-      bottom: 0;
-      width: 165px;
-      height: 164px;
-      background-position: -79px -770px;
-    }
-
-    .veg-right {
-      right: 21px;
-      bottom: 0;
-      width: 140px;
-      height: 164px;
-      background-position: -850px -770px;
-    }
-
-    .date-block {
-      position: absolute;
-      left: 70px;
-      top: 973px;
-      width: 890px;
-      text-align: center;
-      font-size: 36px;
-      line-height: 1.48;
-      font-weight: 400;
-    }
-
-    .date-block b {
+    .fee-highlight {
+      color: var(--red);
+      font-size: 42px;
+      line-height: 1;
       font-weight: 900;
     }
 
-    .fee {
-      position: absolute;
-      left: 100px;
-      top: 1130px;
-      width: 610px;
-      text-align: center;
-    }
-
-    .fee .label {
-      font-size: 30px;
-      line-height: 1.15;
-    }
-
-    .fee .label b {
-      font-size: 36px;
+    .fee-highlight small {
+      color: var(--ink);
+      font-size: 20px;
       font-weight: 900;
+      text-transform: uppercase;
     }
 
-    .fee .amount {
-      margin-top: 16px;
-      font-size: 30px;
-      line-height: .95;
-      font-weight: 900;
-    }
-
-    .fee .amount .currency {
-      font-size: 55px;
-    }
-
-    .fee .amount .number {
-      font-size: 67px;
-    }
-
-    .fee .amount .tail {
-      font-size: 31px;
-      margin-left: 8px;
-    }
-
-    .fee .food {
-      margin-top: 24px;
-      font-size: 31px;
-      line-height: 1.18;
-    }
-
-    .limited {
+    .offer {
       position: absolute;
-      right: 75px;
-      top: 1120px;
-      width: 190px;
-      height: 193px;
-      display: grid;
-      place-items: center;
-      padding: 12px 13px 18px;
-      border-radius: 13px;
+      left: 58px;
+      top: 475px;
+      width: 934px;
+      padding: 14px 26px;
+      border-radius: 12px;
       background: var(--green);
       color: #fff;
       text-align: center;
       font-weight: 900;
-      line-height: .95;
+      font-size: 25px;
+      line-height: 1.25;
     }
 
-    .limited .top {
-      font-size: 29px;
-    }
-
-    .limited .num {
-      display: block;
-      margin: 4px 0;
-      font-size: 76px;
-      line-height: .85;
-    }
-
-    .limited .bottom {
-      font-size: 28px;
-    }
-
-    .bottom-card {
+    .note-contact {
       position: absolute;
-      bottom: 23px;
-      height: 180px;
-      border-radius: 23px;
+      left: 58px;
+      top: 590px;
+      width: 934px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .note-card,
+    .contact-card {
+      min-height: 144px;
+      padding: 16px 20px;
+      border-radius: 12px;
       background: #fff;
+      border: 2px solid rgba(18, 96, 68, .16);
       text-align: center;
     }
 
-    .note {
-      left: 29px;
-      width: 475px;
-      padding: 20px 34px 16px;
-      font-size: 31px;
-      line-height: 1.18;
+    .note-card {
+      font-size: 25px;
+      line-height: 1.28;
     }
 
-    .note b {
+    .note-card b,
+    .contact-card b {
       font-weight: 900;
+      color: var(--green);
     }
 
-    .register {
-      right: 29px;
-      width: 481px;
-      padding: 32px 30px 20px 148px;
-      font-size: 30px;
-      line-height: 1.12;
+    .contact-card {
+      font-size: 22px;
+      line-height: 1.3;
     }
 
-    .register .red {
-      color: #e01118;
-      font-size: 35px;
-      font-weight: 900;
-    }
-
-    .register .small {
+    .contact-card .name {
       display: block;
-      color: #333;
-      font-size: 26px;
-      font-weight: 400;
-    }
-
-    .register .phones {
-      display: block;
-      margin-top: 10px;
-      color: #111;
-      font-size: 27px;
-      line-height: 1.1;
       font-family: Arial, sans-serif;
+      font-size: 23px;
+      font-weight: 900;
+    }
+
+    .service-images {
+      position: absolute;
+      left: 160px;
+      top: 780px;
+      width: 730px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .service-images img {
+      width: 100%;
+      aspect-ratio: 1;
+      display: block;
+      object-fit: cover;
+      border-radius: 12px;
+      border: 5px solid #fff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .18);
+      background: #fff;
+    }
+
+    .address {
+      position: absolute;
+      left: 58px;
+      bottom: 22px;
+      width: 610px;
+      min-height: 82px;
+      padding: 12px 18px;
+      border-radius: 12px;
+      background: #fff;
+      border: 2px solid rgba(18, 96, 68, .16);
+      font-family: Arial, sans-serif;
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .map-link {
+      display: block;
+      margin-top: 4px;
+      color: var(--red);
+      font-size: 17px;
+      overflow-wrap: anywhere;
+    }
+
+    .posted-by {
+      position: absolute;
+      right: 58px;
+      bottom: 22px;
+      width: 302px;
+      min-height: 82px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      background: #fff;
+      border: 2px solid rgba(18, 96, 68, .16);
+      text-align: center;
+      font-size: 22px;
+      line-height: 1.2;
+      font-weight: 800;
+    }
+
+    .posted-by span {
+      display: block;
+      font-family: Arial, sans-serif;
+      font-size: 22px;
+      font-weight: 900;
     }
 
     .phone-icon {
@@ -378,78 +317,68 @@
       <div class="crop sage-right" aria-hidden="true"></div>
 
       <header class="brand">
-        <h1>போகர் அக்குபங்சர் நிறுவனம்</h1>
+        <h1>SRI HARI ACUPUNCTURE CENTRE</h1>
         <div class="sub">நடத்தும்</div>
       </header>
 
       <div class="course-title">உணவு மருத்துவம் மற்றும் அக்குபங்சர் அடிப்படைப் பயிற்சி வகுப்பு</div>
-      <div class="invite">அன்புடையீர் வணக்கம் !</div>
 
-      <section class="syllabus" aria-label="பயிற்சி விவரங்கள்">
-        <div class="crop leaf-corner leaf-left-top" aria-hidden="true"></div>
-        <div class="crop leaf-corner leaf-left-mid" aria-hidden="true"></div>
-        <div class="crop leaf-corner leaf-right-top" aria-hidden="true"></div>
-        <div class="crop leaf-corner leaf-right-mid" aria-hidden="true"></div>
-        <div class="crop needle-left" aria-hidden="true"></div>
-        <div class="crop needle-right" aria-hidden="true"></div>
-        <div class="crop veg-left" aria-hidden="true"></div>
-        <div class="crop veg-right" aria-hidden="true"></div>
+      <section class="details" aria-label="வகுப்பு தேதி நேரம் கட்டணம் இடம்">
+        <div class="info-card">
+          <div class="info-title">நாள் மற்றும் நேரம்</div>
+          <div class="info-body">
+            நாள்: 21.06.26
+            <span class="muted">காலை 10 மணி முதல் மாலை 5 மணி வரை</span>
+          </div>
+        </div>
 
-        <div class="topic-list">
-          <p class="topic">
-            <strong>வாழ்வியல் முறை</strong>
-            <span>நம்மை நாம் அறிதல்</span>
-          </p>
-          <p class="topic">
-            <strong>உணவு மருத்துவம்</strong>
-            <span>அறுசுவை விளக்கம் &amp;<br>சிறுதானிய உணவு பயன்படுத்தும் முறை</span>
-          </p>
-          <p class="topic">
-            <strong>அக்குபங்சர் சிகிச்சை</strong>
-            <span>அவசர கால புள்ளிகள்</span>
-          </p>
-          <p class="topic">
-            <strong>காய்கறி மருத்துவம்</strong>
-            <span>நாட்டுக் காய்கறி பயன்பாடுகள் &amp;<br>அடுப்பில்லா சமையல்</span>
-          </p>
+        <div class="info-card">
+          <div class="info-title">பயிற்சி கட்டணம்</div>
+          <div class="info-body">
+            1 நபருக்கு
+            <span class="fee-highlight">ரூ.500 <small>only</small></span>
+            <span class="muted">(மதிய உணவு உட்பட)</span>
+          </div>
+        </div>
+
+      </section>
+
+      <section class="offer">
+        Foot Reflexology, Cupping Therapy, or a Sub-Health Analysis<br>
+        இந்த சேவைகளில் ஏதேனும் ஒன்று ஒருமுறை இலவசம்
+      </section>
+
+      <section class="note-contact">
+        <div class="note-card">
+          <b>குறிப்பு:</b><br>
+          தங்கள் வருகையை<br>
+          12.6.26க்குள் தெரிவிக்கவும்.
+        </div>
+
+        <div class="contact-card">
+          <b>மேலும் தொடர்புக்கு</b>
+          <span class="name">V. AYYAMMAL: 9965665537</span>
+          <span class="name">V. LASUMANAN: 9894715787</span>
         </div>
       </section>
 
-      <section class="date-block">
-        இவற்றிற்கான அடிப்படை பயிற்சி வகுப்பு<br>
-        <b>ஞாயிறு ( 07-04-2024 ) அன்று நடைபெற உள்ளது.</b>
+      <section class="service-images" aria-label="இலவச சேவை படங்கள்">
+        <img src="assets/foot-reflexology.jpeg" alt="Foot Reflexology">
+        <img src="assets/cupping-therapy.png" alt="Cupping Therapy">
+        <img src="assets/sub-health-analysis.jpeg" alt="Sub-Health Analysis">
       </section>
 
-      <section class="fee">
-        <div class="label">ஒருவருக்கு.. <b>பயிற்சி கட்டணம்</b></div>
-        <div class="amount">
-          <span class="currency">ரூ.</span>
-          <span class="number">1000/-</span>
-          <span class="tail">மட்டும்</span>
-        </div>
-        <div class="food">ஒரு நாள் முழுநேர வகுப்புமதிய உணவு உட்பட</div>
+      <section class="address">
+        SRI HARI ACUPUNCTURE CENTRE<br>
+        788/1, PASUMAI NAGAR, BAGALUR ROAD, HOSUR<br>
+        KRISNAGIRI DT - 635109
+        <a class="map-link" href="https://maps.app.goo.gl/ptSxbNB2XYCHXv8N7">https://maps.app.goo.gl/ptSxbNB2XYCHXv8N7</a>
       </section>
 
-      <aside class="limited">
-        <div>
-          <span class="top">அனுமதி</span>
-          <span class="num">20</span>
-          <span class="bottom">நபர்களுக்கு<br>மட்டும்</span>
-        </div>
-      </aside>
-
-      <section class="bottom-card note">
-        <b>குறிப்பு :</b><br>
-        பயிற்சி வகுப்பு நிறைவில்<br>
-        அன்றாடம் பயன்படுத்தும் வகையில்<br>
-        அக்குபங்சர் உபகரணங்கள் வழங்கப்படும்
-      </section>
-
-      <section class="bottom-card register">
-        <div class="crop phone-icon" aria-hidden="true"></div>
-        <span class="red">தங்கள் வருகையை<br>முன்பதிவு செய்யவும்</span>
-        <span class="small">பதிவுக்கு</span>
-        <span class="phones">9894715787 | 9965665537</span>
+      <section class="posted-by">
+        பதிவிட்டவர்
+        <span>V. AYYAMMAL</span>
+        <span>9965665537</span>
       </section>
     </article>
   </main>
