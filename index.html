@@ -753,6 +753,35 @@
       ".note-card{font-size:11px!important;white-space:normal!important;}"
     ].join("");
 
+    var DESKTOP_CSS = [
+      "body{padding:28px!important;width:1050px!important;max-width:1050px!important;min-height:0!important;overflow-x:hidden!important;}",
+      ".poster{padding:54px!important;border-radius:22px!important;}",
+      ".brand h1{font-size:34px!important;white-space:nowrap!important;overflow-wrap:normal!important;word-break:normal!important;}",
+      ".brand .sub{font-size:30px!important;}",
+      ".course-title{margin-top:22px!important;font-size:42px!important;}",
+      ".details{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:18px!important;}",
+      ".footer-grid{grid-template-columns:minmax(0,2fr) minmax(220px,.9fr)!important;gap:18px!important;}",
+      ".info-card{min-height:116px!important;padding:22px!important;}",
+      ".info-body{font-size:30px!important;}",
+      ".address{grid-template-columns:minmax(0,1fr) auto!important;text-align:left!important;font-size:21px!important;}",
+      ".map-link{margin:0!important;}",
+      ".map-link img{width:92px!important;}",
+      ".posted-by{font-size:22px!important;}",
+      ".header-row{grid-template-columns:128px minmax(0,1fr) 128px!important;gap:28px!important;}",
+      ".header-image{border-radius:16px!important;border-width:3px!important;}",
+      ".offer-text{padding-right:120px!important;padding-top:0!important;}",
+      ".offer-line{white-space:nowrap!important;}",
+      ".offer-line.en{font-size:24px!important;}",
+      ".offer-line.ta{font-size:30px!important;}",
+      ".service-offer{padding:24px!important;font-size:26px!important;}",
+      ".service-offer>.free-badge{top:-12px!important;right:22px!important;width:70px!important;}",
+      ".service-tile .free-badge{top:-9px!important;right:-9px!important;width:52px!important;}",
+      ".free-badge{width:82px!important;}",
+      ".service-images{gap:20px!important;}",
+      ".footer-contact{font-size:14px!important;padding-inline:14px!important;}",
+      ".note-card{min-height:0!important;font-size:15px!important;white-space:nowrap!important;}"
+    ].join("");
+
     function withOklchFix(fn) {
       var orig = window.getComputedStyle;
       var fix = function(v) {
@@ -779,17 +808,14 @@
       grp.style.opacity = "0";
       grp.style.pointerEvents = "none";
 
-      var tag = null;
-      if (isMobile) {
-        tag = document.createElement("style");
-        tag.textContent = MOBILE_CSS;
-        document.head.appendChild(tag);
-        await new Promise(function(r){ requestAnimationFrame(function(){ requestAnimationFrame(r); }); });
-      }
+      var tag = document.createElement("style");
+      tag.textContent = isMobile ? MOBILE_CSS : DESKTOP_CSS;
+      document.head.appendChild(tag);
+      await new Promise(function(r){ requestAnimationFrame(function(){ requestAnimationFrame(r); }); });
 
       try {
-        var w = isMobile ? document.body.scrollWidth  : document.documentElement.scrollWidth;
-        var h = isMobile ? document.body.scrollHeight : document.documentElement.scrollHeight;
+        var w = document.body.scrollWidth;
+        var h = document.body.scrollHeight;
         var canvas = await withOklchFix(function() { return html2canvas(document.body, {
           useCORS: true,
           scale: 2,
@@ -797,7 +823,7 @@
           scrollY: 0,
           width: w,
           height: h,
-          windowWidth: isMobile ? 390 : w,
+          windowWidth: isMobile ? 390 : 1050,
           windowHeight: h
         }); });
         var link = document.createElement("a");
@@ -805,7 +831,7 @@
         link.href = canvas.toDataURL("image/jpeg", 0.92);
         link.click();
       } finally {
-        if (tag) tag.remove();
+        tag.remove();
         grp.style.opacity = "";
         grp.style.pointerEvents = "";
       }
