@@ -153,17 +153,51 @@
     .session-topics {
       width: min(934px, 100%);
       margin: clamp(22px, 3.6vw, 34px) auto 0;
-      padding: clamp(4px, 1vw, 10px) clamp(46px, 6vw, 72px) clamp(78px, 10vw, 108px);
+      padding: clamp(26px, 3.4vw, 36px) clamp(44px, 7vw, 78px) clamp(98px, 13vw, 140px);
       position: relative;
       isolation: isolate;
       display: grid;
-      gap: clamp(2px, .6vw, 7px);
+      align-content: center;
+      gap: clamp(3px, .55vw, 6px);
       overflow: hidden;
       text-align: center;
       font-weight: 800;
       line-height: 1.12;
       color: var(--ink);
       text-wrap: balance;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, .94), rgba(255, 252, 239, .86)),
+        linear-gradient(135deg, rgba(217, 164, 65, .24), rgba(15, 81, 56, .12));
+      border: 1px solid rgba(15, 81, 56, .18);
+      border-radius: 22px;
+      box-shadow:
+        0 18px 38px rgba(31, 63, 43, .14),
+        inset 0 0 0 1px rgba(255, 255, 255, .7);
+    }
+
+    .session-topics::before,
+    .session-topics::after {
+      content: "";
+      position: absolute;
+      pointer-events: none;
+    }
+
+    .session-topics::before {
+      inset: clamp(8px, 1.3vw, 14px);
+      z-index: 0;
+      border: 1px solid rgba(217, 164, 65, .34);
+      border-radius: 16px;
+    }
+
+    .session-topics::after {
+      left: clamp(28px, 5vw, 54px);
+      right: clamp(28px, 5vw, 54px);
+      bottom: clamp(14px, 2.4vw, 24px);
+      z-index: 0;
+      height: clamp(58px, 8vw, 92px);
+      border-radius: 16px;
+      background:
+        linear-gradient(90deg, rgba(15, 81, 56, .08), rgba(217, 164, 65, .18), rgba(15, 81, 56, .08));
     }
 
     .session-decor,
@@ -174,84 +208,92 @@
     }
 
     .session-decor {
-      z-index: -1;
+      z-index: 1;
       object-fit: contain;
-      opacity: .8;
+      opacity: .34;
       mix-blend-mode: multiply;
     }
 
     .session-decor.top-left {
-      width: clamp(104px, 18vw, 172px);
-      top: -6px;
-      left: -8px;
+      width: clamp(116px, 18vw, 178px);
+      top: 0;
+      left: 0;
     }
 
     .session-decor.top-right {
-      width: clamp(104px, 18vw, 172px);
-      top: -6px;
-      right: -8px;
+      width: clamp(116px, 18vw, 178px);
+      top: 0;
+      right: 0;
     }
 
     .session-decor.side-left {
-      width: clamp(72px, 12vw, 120px);
+      width: clamp(78px, 11vw, 118px);
       top: 40%;
-      left: -4px;
+      left: 2px;
       transform: translateY(-50%);
     }
 
     .session-decor.side-right {
-      width: clamp(72px, 12vw, 120px);
+      width: clamp(78px, 11vw, 118px);
       top: 40%;
-      right: -4px;
+      right: 2px;
       transform: translateY(-50%);
     }
 
     .session-photo {
-      z-index: 0;
-      bottom: 0;
-      width: clamp(118px, 18vw, 176px);
-      height: clamp(76px, 11vw, 112px);
+      z-index: 2;
+      bottom: clamp(14px, 2.4vw, 24px);
+      width: clamp(126px, 17vw, 168px);
+      height: clamp(76px, 10vw, 104px);
       object-fit: cover;
       background: #fff;
-      border: 2px solid rgba(255, 255, 255, .9);
-      box-shadow: 0 8px 18px rgba(26, 72, 52, .14);
+      border: 4px solid rgba(255, 255, 255, .92);
+      border-radius: 15px;
+      box-shadow: 0 12px 22px rgba(26, 72, 52, .18);
     }
 
     .session-photo.left {
-      left: clamp(4px, 1.3vw, 12px);
+      left: clamp(18px, 2.5vw, 28px);
+      transform: rotate(-2deg);
     }
 
     .session-photo.right {
-      right: clamp(4px, 1.3vw, 12px);
+      right: clamp(18px, 2.5vw, 28px);
+      transform: rotate(2deg);
     }
 
     .session-line {
       position: relative;
-      z-index: 1;
+      z-index: 3;
       display: block;
+      justify-self: center;
+      width: min(100%, 700px);
       min-width: 0;
       font-size: clamp(22px, 3.5vw, 36px);
+      font-weight: 850;
       overflow-wrap: break-word;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, .8);
     }
 
     .session-line.emphasis {
       color: var(--green);
-      font-size: clamp(32px, 5.5vw, 58px);
+      font-size: clamp(33px, 5.4vw, 56px);
       line-height: 1.08;
       font-weight: 900;
-      text-shadow: 0 2px 0 rgba(255, 255, 255, .82);
+      text-shadow: 0 2px 0 rgba(255, 255, 255, .88);
     }
 
     .session-line.acupuncture {
       color: var(--green);
-      font-size: clamp(30px, 5.1vw, 54px);
+      font-size: clamp(30px, 5vw, 52px);
       line-height: 1.12;
       font-weight: 900;
-      text-shadow: 0 2px 0 rgba(255, 255, 255, .82);
+      text-shadow: 0 2px 0 rgba(255, 255, 255, .88);
     }
 
     .session-line.long {
-      font-size: clamp(20px, 3.1vw, 34px);
+      width: min(100%, 760px);
+      font-size: clamp(20px, 3.05vw, 32px);
     }
 
     .course-title {
@@ -597,22 +639,37 @@
 
       .session-topics {
         margin-top: 16px;
-        padding: 0 24px 66px;
+        padding: 25px 16px 82px;
         gap: 3px;
+        border-radius: 16px;
+      }
+
+      .session-topics::before {
+        inset: 7px;
+        border-radius: 11px;
+      }
+
+      .session-topics::after {
+        left: 18px;
+        right: 18px;
+        bottom: 10px;
+        height: 58px;
+        border-radius: 12px;
       }
 
       .session-decor.top-left,
       .session-decor.top-right {
-        width: clamp(50px, 16vw, 72px);
-        top: 0;
+        width: clamp(58px, 18vw, 76px);
+        top: 4px;
+        opacity: .26;
       }
 
       .session-decor.top-left {
-        left: -6px;
+        left: -2px;
       }
 
       .session-decor.top-right {
-        right: -6px;
+        right: -2px;
       }
 
       .session-decor.side-left,
@@ -621,26 +678,38 @@
       }
 
       .session-photo {
-        width: clamp(72px, 24vw, 96px);
-        height: clamp(52px, 16vw, 66px);
-        border-width: 1px;
-        box-shadow: 0 5px 12px rgba(26, 72, 52, .12);
+        bottom: 12px;
+        width: clamp(76px, 24vw, 94px);
+        height: clamp(52px, 16vw, 64px);
+        border-width: 2px;
+        border-radius: 10px;
+        box-shadow: 0 6px 13px rgba(26, 72, 52, .14);
+      }
+
+      .session-photo.left {
+        left: 14px;
+      }
+
+      .session-photo.right {
+        right: 14px;
       }
 
       .session-line {
         font-size: clamp(17px, 5vw, 23px);
+        width: min(100%, 310px);
       }
 
       .session-line.emphasis {
-        font-size: clamp(24px, 7.8vw, 34px);
+        font-size: clamp(24px, 7.6vw, 33px);
       }
 
       .session-line.acupuncture {
-        font-size: clamp(23px, 7.2vw, 32px);
+        font-size: clamp(23px, 7vw, 31px);
       }
 
       .session-line.long {
         font-size: clamp(16px, 4.8vw, 22px);
+        width: min(100%, 330px);
       }
 
       .course-title {
@@ -925,6 +994,20 @@
       ".brand h1{font-size:16px!important;line-height:1.18!important;white-space:normal!important;overflow-wrap:break-word!important;word-break:break-word!important;}",
       ".brand .sub{font-size:17px!important;}",
       ".course-title{margin-top:16px!important;font-size:23px!important;}",
+      ".session-topics{margin-top:16px!important;padding:25px 16px 82px!important;gap:3px!important;border-radius:16px!important;}",
+      ".session-topics::before{inset:7px!important;border-radius:11px!important;}",
+      ".session-topics::after{left:18px!important;right:18px!important;bottom:10px!important;height:58px!important;border-radius:12px!important;}",
+      ".session-decor.top-left,.session-decor.top-right{width:72px!important;top:4px!important;opacity:.26!important;}",
+      ".session-decor.top-left{left:-2px!important;}",
+      ".session-decor.top-right{right:-2px!important;}",
+      ".session-decor.side-left,.session-decor.side-right{display:none!important;}",
+      ".session-photo{bottom:12px!important;width:88px!important;height:60px!important;border-width:2px!important;border-radius:10px!important;}",
+      ".session-photo.left{left:14px!important;}",
+      ".session-photo.right{right:14px!important;}",
+      ".session-line{font-size:21px!important;width:min(100%,310px)!important;}",
+      ".session-line.emphasis{font-size:31px!important;}",
+      ".session-line.acupuncture{font-size:30px!important;}",
+      ".session-line.long{font-size:20px!important;width:min(100%,330px)!important;}",
       ".details,.footer-grid{grid-template-columns:1fr!important;}",
       ".info-card,.note-card,.address,.posted-by{min-height:auto!important;}",
       ".info-body{font-size:20px!important;}",
@@ -947,6 +1030,22 @@
       ".brand h1{font-size:30px!important;line-height:1.18!important;white-space:normal!important;overflow-wrap:break-word!important;word-break:break-word!important;}",
       ".brand .sub{font-size:30px!important;}",
       ".course-title{margin-top:22px!important;font-size:42px!important;}",
+      ".session-topics{margin-top:28px!important;padding:36px 78px 138px!important;gap:6px!important;border-radius:22px!important;}",
+      ".session-topics::before{inset:14px!important;border-radius:16px!important;}",
+      ".session-topics::after{left:54px!important;right:54px!important;bottom:24px!important;height:92px!important;border-radius:16px!important;}",
+      ".session-decor.top-left,.session-decor.top-right{width:178px!important;top:0!important;opacity:.34!important;}",
+      ".session-decor.top-left{left:0!important;}",
+      ".session-decor.top-right{right:0!important;}",
+      ".session-decor.side-left,.session-decor.side-right{display:block!important;width:118px!important;top:40%!important;}",
+      ".session-decor.side-left{left:2px!important;}",
+      ".session-decor.side-right{right:2px!important;}",
+      ".session-photo{bottom:24px!important;width:168px!important;height:104px!important;border-width:4px!important;border-radius:15px!important;}",
+      ".session-photo.left{left:28px!important;}",
+      ".session-photo.right{right:28px!important;}",
+      ".session-line{font-size:36px!important;width:min(100%,700px)!important;}",
+      ".session-line.emphasis{font-size:56px!important;}",
+      ".session-line.acupuncture{font-size:52px!important;}",
+      ".session-line.long{font-size:32px!important;width:min(100%,760px)!important;}",
       ".details{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:18px!important;}",
       ".footer-grid{grid-template-columns:minmax(0,2fr) minmax(220px,.9fr)!important;gap:18px!important;}",
       ".info-card{min-height:116px!important;padding:22px!important;}",
